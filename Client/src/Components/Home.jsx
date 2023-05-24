@@ -9,7 +9,7 @@ function Home() {
     return (
     <div>
         <div className='flex items-center justify-around'> 
-        Empleos : {empleos}
+        Empleo : {empleos}
         </div>
       <Cards/>
     </div>
