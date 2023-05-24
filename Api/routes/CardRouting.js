@@ -1,14 +1,15 @@
 const { Router} = require ("express")
+const { getCardHandler, postCardHandler } = require("../Handlers/HandlerCard")
 
 
-const CardRouting = Router()
+const Cardrouter = Router()
 
 
-CardRouting.get("/",getVideogamesHandler)
-CardRouting.post("/jobs",getVideogameHandler)
+Cardrouter.get("/",getCardHandler)
+Cardrouter.post("/jobs",postCardHandler)
 
 
 
 
 
-module.exports =videogamesRouter
+module.exports =Cardrouter

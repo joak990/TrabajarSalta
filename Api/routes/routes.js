@@ -1,5 +1,5 @@
 const { Router } = require('express');
-
+const Cardrouter = require ("./CardRouting")
 
 
 // Importar todos los routers;
@@ -11,7 +11,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 
-router.use("/jobs",cardsrouter)
+router.use("/jobs",Cardrouter)
 
 
 
