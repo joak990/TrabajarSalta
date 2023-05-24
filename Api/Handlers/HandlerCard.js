@@ -2,7 +2,7 @@
   const getCardHandler = async (req,res)=>{
     
     try {
- 
+   res.send(400).send(hola)
     } catch (error) {
       res.status(400).json({error:error.message})
     }
