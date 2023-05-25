@@ -12,16 +12,21 @@ function Card({ fechaCreacion, message, telefono }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white rounded-lg shadow-lg p-6 h-full flex flex-col">
       <h1 className="text-xl font-bold mb-4">{fechaCreacion}</h1>
-      <p className="text-gray-700 overflow-hidden max-h-32">{message}</p>
+      <p className="text-gray-700 flex-grow overflow-hidden">
+        {message}
+      </p>
 
       {mostrarTelefono ? (
         <div className="mt-4">
           <p className="font-bold">Teléfono o Mail: {telefono}</p>
           <button
             className="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-            onClick={cerrarTelefono}>Cerrar Teléfono o Mail</button>
+            onClick={cerrarTelefono}
+          >
+            Cerrar Teléfono o Mail
+          </button>
         </div>
       ) : (
         <button
