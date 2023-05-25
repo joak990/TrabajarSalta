@@ -8,8 +8,4 @@ const Cardrouter = Router()
 Cardrouter.get("/",getCardHandler)
 Cardrouter.post("/jobs",postCardHandler)
 
-
-
-
-
 module.exports =Cardrouter

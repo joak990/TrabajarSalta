@@ -11,7 +11,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 
-router.use("/jobs",Cardrouter)
+router.use("/",Cardrouter)
 
 
 
