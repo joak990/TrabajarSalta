@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { postJobs } from '../Redux/Actions';
+import { getalljobs, postJobs } from '../Redux/Actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import image from "../Components/images12.png"
@@ -43,6 +43,8 @@ function Form() {
       dispatch(postJobs(form));
       alert('El formulario se ha enviado correctamente.');
       navigate('/');
+      dispatch(getalljobs())
+
     }
     setForm({
       Mensaje: '',
