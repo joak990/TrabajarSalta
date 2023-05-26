@@ -93,7 +93,7 @@ function Form() {
             </button>
            
           </div>
-           <p>paga con </p><img
+           <p>Abone con</p><img
            
               src={image}
               alt="Mercado Pago"
