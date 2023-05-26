@@ -11,7 +11,10 @@ function Home() {
   const empleos = jobs.length
  const dispatch = useDispatch()
   useEffect(() => {
-  dispatch(getalljobs())
+    if(jobs.length <= 0 ){
+      dispatch(getalljobs())
+    }
+
   }, [dispatch]);
 
 

@@ -6,6 +6,7 @@ const {cleanArrayDb}  = require('../Utils/Utils');
 const getCardHandler = async (req,res)=>{
     
     try {
+      
      const clasificados = await Clasificado.findAll();
     const clasificadosClean = cleanArrayDb(clasificados);
     res.json(clasificadosClean);
