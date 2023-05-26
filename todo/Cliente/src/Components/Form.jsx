@@ -54,7 +54,7 @@ function Form() {
     <div className="bg-blue-100 min-h-screen">
       <div className="container mx-auto p-8">
         <h1 className="text-2xl font-bold text-center mt-8 mb-4">
-          ¡Buscas Personal? ¡Completa el formulario! 💼👨‍💼
+          ¡Buscas Personal? ¡Completa el formulario este es tu momento! 💼👨‍💼
         </h1>
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-lg">
           <div className="mb-4">
