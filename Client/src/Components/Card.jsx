@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Card({ fechaCreacion, message, telefono }) {
+function Card({ fechaDb, message, telefono }) {
   const [mostrarTelefono, setMostrarTelefono] = useState(false);
 
   const toggleMostrarTelefono = () => {
@@ -13,7 +13,7 @@ function Card({ fechaCreacion, message, telefono }) {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 h-full flex flex-col">
-      <h1 className="text-xl font-bold mb-4">{fechaCreacion}</h1>
+      <h1 className="text-xl font-bold mb-4">{fechaDb}</h1>
       <p className="text-gray-700 flex-grow overflow-hidden">
         {message}
       </p>

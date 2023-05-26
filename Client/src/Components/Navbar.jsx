@@ -20,10 +20,10 @@ const Navbar = () => {
             Home
           </Link>
           <Link to="/about" className="text-white text-lg font-bold">
-            About
+            Acerca de Nosotros
           </Link>
           <Link to="/form" className="text-white text-lg font-bold">
-            Publica
+            Publica tu Anuncio
           </Link>
         </div>
         <div>

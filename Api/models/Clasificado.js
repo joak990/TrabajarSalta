@@ -18,6 +18,9 @@ module.exports = (sequelize) => {
     },
     fechaVencimiento:{
       type:DataTypes.STRING
+    },
+    fechaDb:{
+    type:DataTypes.STRING
     }
 
   },{timestamps:false});
