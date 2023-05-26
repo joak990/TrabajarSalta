@@ -5,8 +5,8 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./Redux/index";
-
-
+import axios from 'axios'
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

@@ -4,7 +4,7 @@ import axios from "axios"
 export function getalljobs() {
     return function (dispatch) {
       axios
-        .get("http://localhost:3001")
+        .get("/")
         .then((response) => {
           dispatch({ type: GET_ALL_JOBS, payload: response.data });
         })
@@ -20,7 +20,7 @@ export function getalljobs() {
     return async function () {
       try {
         const json = await axios.post(
-          "http://localhost:3001/jobs",
+          "/jobs",
           payload
         );
         return {
