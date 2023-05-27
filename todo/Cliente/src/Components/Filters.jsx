@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { resetfilters, sortJobsByRecent, sortJobsByOldest } from '../Redux/Actions';
 import { useDispatch } from 'react-redux';
 
@@ -17,11 +17,16 @@ function Filters() {
       dispatch(resetfilters());
     }
   };
+  
+  useEffect(() => {
+    dispatch(sortJobsByRecent());
+    // Aquí podrías llamar a tu acción para obtener los trabajos y almacenarlos en el estado
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row items-center md:space-x-4">
       <label htmlFor="sort" className="text-gray-700">
-        Ordenar por:
+        Ordenar pors:
       </label>
       <div className="relative mt-2 md:mt-0">
         <select
