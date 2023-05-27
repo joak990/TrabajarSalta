@@ -21,7 +21,7 @@
 
     const eliminarDatosVencidos = async () => {
       try {
-        const fechaLimite = moment().tz("America/Argentina/Buenos_Aires").subtract(1, "days").toDate();
+        const fechaLimite = moment().tz("America/Argentina/Buenos_Aires").subtract(2, "minutes").toDate();
         const numfilaseliminadas = await Clasificado.destroy({
           where: {
             fechaPublicacion: {
@@ -36,7 +36,7 @@
       }
     };
     
-    setInterval(eliminarDatosVencidos, 1 * 60 * 60 * 1000);
+    setInterval(eliminarDatosVencidos,  60000);
 
 module.exports = {
     cleanArrayDb
