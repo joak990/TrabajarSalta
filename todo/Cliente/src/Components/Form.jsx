@@ -15,7 +15,6 @@ function Form() {
   const limiteEmailTelefono = 22;
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const validarFormulario = () => {
@@ -52,6 +51,13 @@ function Form() {
     }
   };
 
+  const handleEmailTelefonoChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= limiteEmailTelefono) {
+      setForm({ ...form, EmailTelefono: value });
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const isValid = validarFormulario();
@@ -60,9 +66,9 @@ function Form() {
       dispatch(postJobs(form));
       alert('El formulario se ha enviado correctamente.');
       navigate('/');
-      dispatch(getalljobs())
-
+      dispatch(getalljobs());
     }
+
     setForm({
       Mensaje: '',
       EmailTelefono: ''
@@ -102,7 +108,7 @@ function Form() {
               type="text"
               id="telefono"
               value={form.EmailTelefono}
-              onChange={(e) => setForm({ ...form, EmailTelefono: e.target.value })}
+              onChange={handleEmailTelefonoChange}
               className={`w-full border rounded-md py-2 px-3 ${errors && 'border-red-500'}`}
             />
             {errors && <p className="text-red-500">{errors}</p>}
