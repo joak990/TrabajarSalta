@@ -41,7 +41,7 @@ function Home() {
         <h1 className=' text text-3xl '>Clasificados actuales</h1>
       </div>
         <div className='flex items-center justify-around'> 
-        Empleos Actuales : {empleos}
+        Empleos actuales : {empleos}
         <div className=' mb-500'> 
         
         </div>

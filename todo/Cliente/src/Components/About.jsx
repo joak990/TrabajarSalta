@@ -13,7 +13,7 @@ function About() {
             <h2 className="text-xl font-bold mb-4">Soy Empleador 💼</h2>
             <p className="text-gray-700">
               Si estás ofreciendo trabajo en Salta, Capital, aprovecha nuestra plataforma para publicar
-              tu anuncio semanalmente. 📢💼💼
+              tu anuncio diariamente , es decir duran 24hs . 📢💼💼
             </p>
             <div className="flex justify-center mt-8">
               <a

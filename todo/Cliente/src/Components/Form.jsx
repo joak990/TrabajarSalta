@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { getalljobs, postJobs } from '../Redux/Actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import image from "../Components/images12.png"
+
 function Form() {
   const [form, setForm] = useState({
     Mensaje: '',
@@ -10,6 +10,9 @@ function Form() {
   });
   const [errorMensaje, setErrorMensaje] = useState('');
   const [errors, setErrors] = useState('');
+  const [caracteresEscritos, setCaracteresEscritos] = useState(0);
+  const limiteCaracteres = 450;
+  const limiteEmailTelefono = 22;
 
   const navigate = useNavigate();
 
@@ -21,18 +24,32 @@ function Form() {
     if (form.Mensaje.trim() === '') {
       setErrorMensaje('El mensaje es requerido');
       isValid = false;
+    } else if (form.Mensaje.trim().length > limiteCaracteres) {
+      setErrorMensaje('El mensaje no puede superar los 450 caracteres');
+      isValid = false;
     } else {
       setErrorMensaje('');
     }
 
     if (form.EmailTelefono.trim() === '') {
-      setErrors('El teléfono es requerido');
+      setErrors('El teléfono o email de contacto es requerido');
+      isValid = false;
+    } else if (form.EmailTelefono.trim().length > limiteEmailTelefono) {
+      setErrors('El teléfono o email de contacto no puede superar los 22 caracteres');
       isValid = false;
     } else {
       setErrors('');
     }
 
     return isValid;
+  };
+
+  const handleMensajeChange = (e) => {
+    const mensaje = e.target.value;
+    if (mensaje.length <= limiteCaracteres) {
+      setForm({ ...form, Mensaje: mensaje });
+      setCaracteresEscritos(mensaje.length);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -50,6 +67,7 @@ function Form() {
       Mensaje: '',
       EmailTelefono: ''
     });
+    setCaracteresEscritos(0);
   };
 
   return (
@@ -67,24 +85,30 @@ function Form() {
               name="Mensaje"
               id="mensaje"
               value={form.Mensaje}
-              onChange={(e) => setForm({ ...form, Mensaje: e.target.value })}
+              onChange={handleMensajeChange}
               className={`w-full h-32 border rounded-md py-2 px-3 ${errorMensaje && 'border-red-500'}`}
             ></textarea>
             {errorMensaje && <p className="text-red-500">{errorMensaje}</p>}
+            <p className="text-sm text-gray-500">
+              Caracteres escritos: {caracteresEscritos}/{limiteCaracteres}
+            </p>
           </div>
           <div className="mb-4">
             <label htmlFor="telefono" className="block font-bold mb-2">
-              Teléfono:
+              Teléfono o email de contacto:
             </label>
             <input
               name="EmailTelefono"
-              type="number"
+              type="text"
               id="telefono"
               value={form.EmailTelefono}
               onChange={(e) => setForm({ ...form, EmailTelefono: e.target.value })}
               className={`w-full border rounded-md py-2 px-3 ${errors && 'border-red-500'}`}
             />
             {errors && <p className="text-red-500">{errors}</p>}
+            <p className="text-sm text-gray-500">
+              Caracteres escritos: {form.EmailTelefono.length}/{limiteEmailTelefono}
+            </p>
           </div>
           <div className="flex justify-center items-center mb-4">
             <button
@@ -93,9 +117,7 @@ function Form() {
             >
               Enviar
             </button>
-           
           </div>
-           
         </form>
       </div>
     </div>
