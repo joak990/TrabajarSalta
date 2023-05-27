@@ -95,12 +95,7 @@ function Form() {
             </button>
            
           </div>
-           <p>Abone con</p><img
            
-              src={image}
-              alt="Mercado Pago"
-              className="ml-4 h-6 text-5xl"
-            />
         </form>
       </div>
     </div>
