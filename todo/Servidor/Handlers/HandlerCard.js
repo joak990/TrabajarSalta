@@ -22,7 +22,7 @@ const getCardHandler = async (req,res)=>{
     const  {Mensaje,EmailTelefono} = req.body
     const fechaDb = moment().format('LL');
     const fechaPublicacion = moment().format('LL');
-    const fechaVencimiento = moment().add(2, 'minutes').format('LL');
+    const fechaVencimiento = moment().add(24, 'hours').format('LL');
          const clasificado = await createCard(fechaPublicacion,Mensaje,EmailTelefono,fechaVencimiento,fechaDb)
        res.status(201).json(clasificado)
     } catch (error) {
